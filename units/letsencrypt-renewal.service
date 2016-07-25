@@ -1,0 +1,11 @@
+[Unit]
+Description=Renew letsencrypt certificates
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker run --rm -i \
+-p 127.0.0.1:9999:80 \
+-v /etc/letsencrypt:/etc/letsencrypt -v /var/lib/letsencrypt:/var/lib/letsencrypt \
+quay.io/letsencrypt/letsencrypt:latest \
+renew --agree-tos --email {{ email }} --standalone-supported-challenges http-01
+ExecStartPost=/usr/bin/docker kill -s HUP proxy

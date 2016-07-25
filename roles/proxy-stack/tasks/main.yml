@@ -1,0 +1,12 @@
+---
+- file: path=/tmp/proxy-stack state=directory
+
+- template: src=docker-compose.yml dest=/tmp/proxy-stack
+- shell: docker-compose up -d chdir=/tmp/proxy-stack
+
+# Add renewal of letsencrypt certificates
+- template: src=units/letsencrypt-renewal.service dest=/usr/lib/systemd/system/
+- copy: src=units/letsencrypt-renewal.timer dest=/usr/lib/systemd/system/
+- shell: systemctl daemon-reload
+
+- shell: systemctl start letsencrypt-renewal.timer

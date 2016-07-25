@@ -1,0 +1,12 @@
+---
+- name: Install docker-compose
+  pip: name=docker-compose
+
+- name: Get prometheus code
+  git: repo=https://github.com/vegasbrianc/prometheus.git
+       dest=/opt/prometheus-stack
+       force=yes
+
+- shell: sed -i 's/3000\:3000/127.0.0.1\:3000\:3000/g' /opt/prometheus-stack/docker-compose.yml
+
+- shell: docker-compose up -d chdir=/opt/prometheus-stack
