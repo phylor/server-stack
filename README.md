@@ -17,6 +17,7 @@ To provision one or multiple servers, do the following:
 - `cd server-stack`
 - Create an inventory file `inventories/myinventory`. Note that your servers need to include a variable called `email` specifying the administrator's email address, e.g.:
 
+
      [servers]
      1.1.1.1    ansible_user=root email=admin@example.com
 
