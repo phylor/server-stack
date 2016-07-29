@@ -15,7 +15,6 @@ To provision one or multiple servers, do the following:
 
 - `git clone git@github.com:phylor/server-stack.git`
 - `cd server-stack`
-- `git submodule update`
 - Create an inventory file `inventories/myinventory`. Note that your servers need to include a variable called `email` specifying the administrator's email address, e.g.:
 
      [servers]
