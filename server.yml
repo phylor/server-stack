@@ -1,7 +1,6 @@
 ---
 - hosts: servers
   roles:
-    - ansible-docker
-    - ansible-dockerpy
+    - docker-stack
     - proxy-stack
     - monitoring-stack

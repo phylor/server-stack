@@ -1,6 +1,0 @@
-[submodule "roles/ansible-docker"]
-	path = roles/ansible-docker
-	url = https://github.com/cspicer/ansible-docker.git
-[submodule "ansible-apt"]
-	path = ansible-apt
-	url = https://github.com/cspicer/ansible-apt.git

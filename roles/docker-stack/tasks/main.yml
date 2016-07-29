@@ -1,0 +1,9 @@
+---
+- name: Docker | Install
+  shell: curl -fsSL https://get.docker.com/ | sh
+
+- name: DockerPy | Install pip
+  shell: easy_install pip
+
+- name: DockerPy | Install
+  pip: name=docker-py
