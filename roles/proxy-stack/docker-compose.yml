@@ -32,11 +32,12 @@ services:
   letsencrypt:
     image: phylor/letsencrypt-consul
     container_name: letsencrypt
-    network_mode: host
     environment:
-      CONSUL_CONNECT: localhost:8500
+      CONSUL_CONNECT: consul:8500
       FQDN: "{{ ansible_fqdn }}"
       EMAIL: "{{ email }}"
+    ports:
+      - '127.0.0.1:9999:80'
     volumes:
       - tls-certificates:/certificates
       - letsencrypt-etc:/etc/letsencrypt
